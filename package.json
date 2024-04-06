@@ -9,11 +9,17 @@
     "type": "git",
     "url": "git@github.com:GreenTeaCake/gtc-components.git"
   },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10"
+  },
   "scripts": {
     "build": "stencil build",
     "format": "prettier --write --ignore-unknown .",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
+    "test:unit": "stencil test --spec",
+    "test:e2e": "stencil test --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
@@ -24,7 +30,7 @@
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "prettier": "^3.2.5",
-    "puppeteer": "^22.6.3"
+    "puppeteer": "^21.11.0"
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
