@@ -9,11 +9,17 @@
     "type": "git",
     "url": "git@github.com:GreenTeaCake/gtc-components.git"
   },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10"
+  },
   "scripts": {
     "build": "stencil build",
     "format": "prettier --write --ignore-unknown .",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
+    "test:unit": "stencil test --spec",
+    "test:e2e": "stencil test --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },

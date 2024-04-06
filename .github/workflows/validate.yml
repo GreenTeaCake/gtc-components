@@ -1,0 +1,41 @@
+# https://docs.github.com/en/actions
+
+name: On Push
+
+on: push
+
+jobs:
+  check-code:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --frozen-lockfile
+
+      - name: Build
+        run: npm run build
+
+      - name: Unit Test
+        run: npm run test:unit
+
+      - name: E2E Test
+        run: npm run test:e2e
+
+      - name: Format
+        run: npm run format
+
+      - name: Check for uncommitted changes
+        run: |
+          if [[ `git status --porcelain` ]]; then
+            echo "Uncommitted changes found after running format"
+            exit 1
+          fi
