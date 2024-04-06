@@ -1,0 +1,7 @@
+.stencil
+coverage
+dist
+loader
+node_modules
+www
+pnpm-lock.yaml
