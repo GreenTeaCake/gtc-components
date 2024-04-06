@@ -7,6 +7,7 @@
     "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "module": "esnext",
+    "strictNullChecks": true,
     "target": "es2017",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
