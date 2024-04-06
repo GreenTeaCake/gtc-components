@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+
+  .item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+  }
+}
