@@ -1,0 +1,42 @@
+$switch-width: 40px;
+$switch-height: 20px;
+
+$marker-size: 16px;
+$marker-color: #ffffff;
+
+$spacing: calc(($switch-height - $marker-size) / 2);
+
+:host {
+  display: inline-block;
+  height: $switch-height;
+
+  .gtc-switch {
+    display: inline-block;
+    width: $switch-width;
+    height: $switch-height;
+    border-radius: calc($switch-height / 2);
+    background-color: #c9c7c7;
+    position: relative;
+    cursor: pointer;
+
+    .gtc-switch-marker {
+      display: inline-block;
+      width: $marker-size;
+      height: $marker-size;
+      border-radius: calc($marker-size / 2);
+      background-color: $marker-color;
+
+      position: absolute;
+      top: $spacing;
+      left: $spacing;
+    }
+
+    &__checked {
+      background-color: #398368;
+
+      .gtc-switch-marker {
+        left: calc($switch-width - $marker-size - $spacing);
+      }
+    }
+  }
+}
