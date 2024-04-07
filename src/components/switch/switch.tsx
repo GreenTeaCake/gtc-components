@@ -1,6 +1,8 @@
 import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/core';
 
 /**
+ * Switch component documentation.
+ *
  * @link https://www.w3.org/WAI/ARIA/apg/patterns/switch/
  * @link https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/
  * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role
@@ -24,7 +26,7 @@ export class Switch {
   @Prop() public label!: string;
 
   /**
-   * Emitted when the value has changed
+   * Is called when the value has changed.
    */
   @Event() private change: EventEmitter<boolean>;
 
@@ -49,17 +51,20 @@ export class Switch {
     );
   }
 
-  private onClick = (event: MouseEvent) => {
-    event.stopPropagation();
+  private toggleChecked(event: KeyboardEvent | MouseEvent) {
+    event.preventDefault();
     this.change.emit(!this.checked);
+  }
+
+  private onClick = (event: MouseEvent) => {
+    this.toggleChecked(event);
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
     switch (event.key) {
       case 'Enter':
       case ' ': {
-        event.stopPropagation();
-        this.change.emit(!this.checked);
+        this.toggleChecked(event);
         break;
       }
       default: {
