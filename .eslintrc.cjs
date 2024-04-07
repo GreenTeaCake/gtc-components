@@ -7,9 +7,10 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:@stencil-community/recommended',
+    'plugin:storybook/recommended',
     'prettier',
   ],
-  ignorePatterns: ['dist', 'loader', 'www', '.eslintrc.cjs'],
+  ignorePatterns: ['!.storybook', 'dist', 'loader', 'www', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
