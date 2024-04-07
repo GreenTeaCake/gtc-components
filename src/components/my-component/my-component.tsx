@@ -1,9 +1,8 @@
 import { Component, type JSX, Prop, h } from '@stencil/core';
-import { format } from '../../utils/utils';
 
 @Component({
   tag: 'my-component',
-  styleUrl: 'my-component.css',
+  styleUrl: 'my-component.scss',
   shadow: true,
 })
 export class MyComponent {
@@ -22,11 +21,13 @@ export class MyComponent {
    */
   @Prop() last?: string;
 
-  private getText(): string {
-    return format(this.first, this.middle, this.last);
-  }
-
   render(): JSX.Element {
-    return <div>Hello, World! I&apos;m {this.getText()}</div>;
+    return (
+      <ul class="list">
+        {this.first && <li class="item">{this.first}</li>}
+        {this.middle && <li class="item">{this.middle}</li>}
+        {this.last && <li class="item">{this.last}</li>}
+      </ul>
+    );
   }
 }

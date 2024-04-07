@@ -9,7 +9,7 @@ module.exports = {
     'plugin:@stencil-community/recommended',
     'prettier',
   ],
-  ignorePatterns: ['dist', 'loader', 'www', '.eslintrc.cjs', 'stencil.config.ts'],
+  ignorePatterns: ['dist', 'loader', 'www', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -49,6 +49,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-plusplus': 'off',
     'no-void': ['error', { allowAsStatement: true }],
+    'react/no-unknown-property': 'off',
     'react/react-in-jsx-scope': 'off',
   },
 };
