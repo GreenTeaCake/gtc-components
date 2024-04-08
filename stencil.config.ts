@@ -15,6 +15,13 @@ export const config: Config = {
       externalRuntime: false,
     },
     {
+      type: 'docs-readme',
+    },
+    {
+      type: 'docs-json',
+      file: 'docs/docs.json',
+    },
+    {
       type: 'www',
       serviceWorker: null, // disable service workers
     },

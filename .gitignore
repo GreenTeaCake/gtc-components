@@ -1,8 +1,9 @@
 dist/
-www/
+docs/
 loader/
 src/components.d.ts
 storybook-static/
+www/
 
 *~
 *.sw[mnpcod]

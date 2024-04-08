@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { defineCustomElements } from '../loader';
+import { defineCustomElements } from '../dist/esm/loader';
 
 defineCustomElements();
 

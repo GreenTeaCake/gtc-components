@@ -1,28 +1,32 @@
-type Args = {
-  checked?: boolean;
-  label: string;
-};
+import type { Meta, StoryObj } from '@storybook/web-components';
+import { getComponentDoc } from '../../stories/getComponentDoc';
 
-type Example<T> = {
-  args: T;
-};
+const DOCS = getComponentDoc('gtc-switch');
 
-export default {
+const meta: Meta = {
   title: 'Components/Switch',
+  component: 'gtc-switch',
   tags: ['autodocs'],
-  render: (args: Args) => {
+  render: (args) => {
     const { checked, label } = args;
     return `<gtc-switch checked="${checked}" label="${label}" />`;
   },
-  argTypes: {
-    checked: { control: 'boolean' },
-    label: { control: 'text' },
+  argTypes: DOCS.argTypes,
+  parameters: {
+    docs: {
+      description: {
+        component: DOCS.description,
+      },
+    },
   },
 };
 
-export const Basic: Example<Args> = {
+export default meta;
+
+export const Primary: StoryObj = {
+  name: 'Usage Example',
   args: {
-    checked: true,
-    label: 'Switch example',
+    checked: false,
+    label: 'Switch',
   },
 };
