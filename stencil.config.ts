@@ -4,6 +4,9 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'gtc-components',
   plugins: [sass()],
+  extras: {
+    enableImportInjection: true,
+  },
   outputTargets: [
     {
       type: 'dist',
@@ -11,7 +14,8 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      customElementsExportBehavior: 'auto-define-custom-elements',
+      // customElementsExportBehavior: 'auto-define-custom-elements',
+      customElementsExportBehavior: 'single-export-module',
       externalRuntime: false,
     },
     {

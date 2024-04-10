@@ -10,7 +10,16 @@ module.exports = {
     'plugin:storybook/recommended',
     'prettier',
   ],
-  ignorePatterns: ['!.storybook', 'dist', 'loader', 'www', '.eslintrc.cjs'],
+  ignorePatterns: [
+    '.storybook',
+    'dist',
+    'loader',
+    'src/stories',
+    'src/**/*.stories.ts',
+    'www',
+    '.eslintrc.cjs',
+    'stencil.config.ts',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
