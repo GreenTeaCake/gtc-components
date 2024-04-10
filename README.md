@@ -1,8 +1,11 @@
 # Web Components Library
 
-List of components:
+Component documentation:
 
 - [switch](/src/components/switch/readme.md)
+
+The generated Storybook site also provides for the components the auto-generated
+documentation, interactive playground and accessibilty tests.
 
 ## Build Flow
 

@@ -19,6 +19,8 @@ const MIN_LABEL_LENGTH = 1;
  * `gtc-switch` custom element implements the switch specification behaviour. It is a stateless controlled component.
  * Please use `checked` property to control the component's state and attach event listener for custom `gtcChange`
  * event to be notified about the state changes.
+ *
+ * Please note that the field `label` is mandatory.
  */
 @Component({
   tag: 'gtc-switch',
@@ -26,12 +28,21 @@ const MIN_LABEL_LENGTH = 1;
   styleUrl: 'switch.scss',
 })
 export class Switch {
+  constructor() {
+    this.validateLabel(this.label);
+  }
+
   /**
    * Text value used for `aria-label` property.
    *
    * The minimal length is 1.
    */
   @Prop({ reflect: true }) public label!: string;
+
+  @Watch('label')
+  protected validateLabelChange(newLabelValue: string) {
+    this.validateLabel(newLabelValue);
+  }
 
   /**
    * The reflective property that allows to control the state of the switch.
@@ -46,9 +57,8 @@ export class Switch {
   @Prop({ reflect: true }) public disabled = false;
 
   /**
-   * Is called when the value has changed.
+   * Is called when the value has changed. Event name is prefixed not to be confused/conflict with the native one.
    */
-  // event name is prefixed not to be confused/conflict with the native one
   @Event() private gtcChange: EventEmitter<boolean>;
 
   render() {
@@ -75,12 +85,11 @@ export class Switch {
     );
   }
 
-  @Watch('label')
-  protected validateLabel(newLabelValue: string) {
-    if (typeof newLabelValue !== 'string' || newLabelValue === '') {
+  private validateLabel(labelValue: string) {
+    if (typeof labelValue !== 'string' || labelValue === '') {
       throw new Error('Switch has no label.');
     }
-    if (newLabelValue.length < MIN_LABEL_LENGTH) {
+    if (labelValue.length < MIN_LABEL_LENGTH) {
       throw new Error('Switch label is too short.');
     }
   }

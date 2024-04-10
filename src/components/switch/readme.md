@@ -22,6 +22,25 @@ Specifications:
 Please use `checked` property to control the component's state and attach event listener for custom `gtcChange`
 event to be notified about the state changes.
 
+Please note that the field `label` is mandatory.
+
+## Usage
+
+### Basic-example
+
+Here is the basic usage example for `gtc-switch`:
+
+```html
+<gtc-switch label="Accessible Label" checked="false" id="my-cool-switch" />
+<script>
+  let myCoolSwitch = document.getElementById('my-cool-switch');
+  myCoolSwitch.addEventListener('gtcChange', (event) => {
+    event.preventDefault();
+    event.srcElement.checked = event.detail;
+  });
+</script>
+```
+
 ## Properties
 
 | Property             | Attribute  | Description                                                                                               | Type      | Default     |
@@ -32,9 +51,9 @@ event to be notified about the state changes.
 
 ## Events
 
-| Event       | Description                           | Type                   |
-| ----------- | ------------------------------------- | ---------------------- |
-| `gtcChange` | Is called when the value has changed. | `CustomEvent<boolean>` |
+| Event       | Description                                                                                                   | Type                   |
+| ----------- | ------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `gtcChange` | Is called when the value has changed. Event name is prefixed not to be confused/conflict with the native one. | `CustomEvent<boolean>` |
 
 ---
 
