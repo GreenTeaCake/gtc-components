@@ -3,18 +3,18 @@ $switch-height: 20px;
 
 $marker-size: 16px;
 
-$background-color-default: #c7c7c7;
-$background-color-checked: #398368;
-$background-color-disabled: #e3e3e3;
-
-$marker-color-default: #ffffff;
-$marker-color-disabled: #c7c7c7;
-
-$highlight-color-default: #112c9f;
-
 $spacing: calc(($switch-height - $marker-size) / 2);
 
 :host {
+  --background-color-default: #c7c7c7;
+  --background-color-checked: #398368;
+  --background-color-disabled: #e3e3e3;
+
+  --highlight-color-default: #112c9f;
+
+  --marker-color-default: #ffffff;
+  --marker-color-disabled: #c7c7c7;
+
   display: inline-block;
   height: $switch-height;
 
@@ -23,12 +23,12 @@ $spacing: calc(($switch-height - $marker-size) / 2);
     width: $switch-width;
     height: $switch-height;
     border-radius: calc($switch-height / 2);
-    background-color: $background-color-default;
+    background-color: var(--background-color-default);
     position: relative;
     cursor: pointer;
 
     &:hover {
-      outline: 2px solid $highlight-color-default;
+      outline: 2px solid var(--highlight-color-default);
       outline-offset: 2px;
     }
 
@@ -37,7 +37,7 @@ $spacing: calc(($switch-height - $marker-size) / 2);
       width: $marker-size;
       height: $marker-size;
       border-radius: calc($marker-size / 2);
-      background-color: $marker-color-default;
+      background-color: var(--marker-color-default);
 
       position: absolute;
       top: $spacing;
@@ -45,7 +45,7 @@ $spacing: calc(($switch-height - $marker-size) / 2);
     }
 
     &__checked {
-      background-color: $background-color-checked;
+      background-color: var(--background-color-checked);
 
       .gtc-switch-marker {
         left: calc($switch-width - $marker-size - $spacing);
@@ -55,14 +55,14 @@ $spacing: calc(($switch-height - $marker-size) / 2);
     &__disabled {
       pointer-events: none;
       cursor: not-allowed;
-      background-color: $background-color-disabled;
+      background-color: var(--background-color-disabled);
 
       &:hover {
         outline: none;
       }
 
       .gtc-switch-marker {
-        background-color: $marker-color-disabled;
+        background-color: var(--marker-color-disabled);
       }
     }
   }
