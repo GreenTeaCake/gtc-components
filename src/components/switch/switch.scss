@@ -2,7 +2,15 @@ $switch-width: 40px;
 $switch-height: 20px;
 
 $marker-size: 16px;
-$marker-color: #ffffff;
+
+$background-color-default: #c7c7c7;
+$background-color-checked: #398368;
+$background-color-disabled: #e3e3e3;
+
+$marker-color-default: #ffffff;
+$marker-color-disabled: #c7c7c7;
+
+$highlight-color-default: #112c9f;
 
 $spacing: calc(($switch-height - $marker-size) / 2);
 
@@ -15,16 +23,21 @@ $spacing: calc(($switch-height - $marker-size) / 2);
     width: $switch-width;
     height: $switch-height;
     border-radius: calc($switch-height / 2);
-    background-color: #c9c7c7;
+    background-color: $background-color-default;
     position: relative;
     cursor: pointer;
+
+    &:hover {
+      outline: 2px solid $highlight-color-default;
+      outline-offset: 2px;
+    }
 
     .gtc-switch-marker {
       display: inline-block;
       width: $marker-size;
       height: $marker-size;
       border-radius: calc($marker-size / 2);
-      background-color: $marker-color;
+      background-color: $marker-color-default;
 
       position: absolute;
       top: $spacing;
@@ -32,10 +45,24 @@ $spacing: calc(($switch-height - $marker-size) / 2);
     }
 
     &__checked {
-      background-color: #398368;
+      background-color: $background-color-checked;
 
       .gtc-switch-marker {
         left: calc($switch-width - $marker-size - $spacing);
+      }
+    }
+
+    &__disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      background-color: $background-color-disabled;
+
+      &:hover {
+        outline: none;
+      }
+
+      .gtc-switch-marker {
+        background-color: $marker-color-disabled;
       }
     }
   }

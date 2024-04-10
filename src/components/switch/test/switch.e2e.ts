@@ -46,4 +46,66 @@ describe('gtc-switch', () => {
       expect(element.getAttribute('aria-checked')).toEqual(`false`);
     });
   });
+
+  describe('emits event and triggers callback if clicked', () => {
+    it('when checked', async () => {
+      const page = await newE2EPage();
+
+      await page.setContent('<gtc-switch checked="true"></gtc-switch>');
+
+      const gtcChange = await page.spyOnEvent('gtcChange');
+
+      const element = await page.find('gtc-switch >>> div.gtc-switch');
+      await element.click();
+      await page.waitForChanges();
+
+      expect(gtcChange).toHaveReceivedEventTimes(1);
+      expect(gtcChange).toHaveReceivedEventDetail(false);
+    });
+
+    it('when unchecked', async () => {
+      const page = await newE2EPage();
+
+      await page.setContent('<gtc-switch checked="false"></gtc-switch>');
+
+      const gtcChange = await page.spyOnEvent('gtcChange');
+
+      const element = await page.find('gtc-switch >>> div.gtc-switch');
+      await element.click();
+      await page.waitForChanges();
+
+      expect(gtcChange).toHaveReceivedEventTimes(1);
+      expect(gtcChange).toHaveReceivedEventDetail(true);
+    });
+  });
+
+  describe('emits no event if disabled', () => {
+    it('when checked', async () => {
+      const page = await newE2EPage();
+
+      await page.setContent('<gtc-switch checked="true" disabled="true"></gtc-switch>');
+
+      const gtcChange = await page.spyOnEvent('gtcChange');
+
+      const element = await page.find('gtc-switch >>> div.gtc-switch');
+      await element.click();
+      await page.waitForChanges();
+
+      expect(gtcChange).toHaveReceivedEventTimes(0);
+    });
+
+    it('when unchecked', async () => {
+      const page = await newE2EPage();
+
+      await page.setContent('<gtc-switch checked="false" disabled="true"></gtc-switch>');
+
+      const gtcChange = await page.spyOnEvent('gtcChange');
+
+      const element = await page.find('gtc-switch >>> div.gtc-switch');
+      await element.click();
+      await page.waitForChanges();
+
+      expect(gtcChange).toHaveReceivedEventTimes(0);
+    });
+  });
 });

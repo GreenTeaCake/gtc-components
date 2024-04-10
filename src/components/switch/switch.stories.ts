@@ -8,8 +8,14 @@ const meta: Meta = {
   component: 'gtc-switch',
   tags: ['autodocs'],
   render: (args) => {
-    const { checked, label } = args;
-    return `<gtc-switch checked="${checked}" label="${label}" />`;
+    const { label, checked, disabled } = args;
+    return `
+      <gtc-switch
+        label="${label}"
+        checked="${checked}"
+        disabled="${disabled}"
+      />
+    `;
   },
   argTypes: DOCS.argTypes,
   parameters: {
@@ -26,7 +32,8 @@ export default meta;
 export const Primary: StoryObj = {
   name: 'Usage Example',
   args: {
-    checked: false,
     label: 'Switch',
+    checked: false,
+    disabled: false,
   },
 };
