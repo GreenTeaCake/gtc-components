@@ -55,6 +55,17 @@ Here is the basic usage example for `gtc-switch`:
 | ----------- | ------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `gtcChange` | Is called when the value has changed. Event name is prefixed not to be confused/conflict with the native one. | `CustomEvent<boolean>` |
 
+## CSS Custom Properties
+
+| Name                          | Description                      |
+| ----------------------------- | -------------------------------- |
+| `--background-color-checked`  | The background color if checked  |
+| `--background-color-default`  | The background color by default  |
+| `--background-color-disabled` | The background color if disabled |
+| `--highlight-color-default`   | The highlight color by default   |
+| `--marker-color-default`      | The marker color by default      |
+| `--marker-color-disabled`     | The marker color if disabled     |
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

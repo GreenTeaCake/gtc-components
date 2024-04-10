@@ -6,13 +6,29 @@ $marker-size: 16px;
 $spacing: calc(($switch-height - $marker-size) / 2);
 
 :host {
+  /**
+   * @prop --background-color-default: The background color by default
+   */
   --background-color-default: #c7c7c7;
+  /**
+   * @prop --background-color-checked: The background color if checked
+   */
   --background-color-checked: #398368;
+  /**
+   * @prop --background-color-disabled: The background color if disabled
+   */
   --background-color-disabled: #e3e3e3;
-
+  /**
+   * @prop --highlight-color-default: The highlight color by default
+   */
   --highlight-color-default: #112c9f;
-
+  /**
+   * @prop --marker-color-default: The marker color by default
+   */
   --marker-color-default: #ffffff;
+  /**
+   * @prop --marker-color-disabled: The marker color if disabled
+   */
   --marker-color-disabled: #c7c7c7;
 
   display: inline-block;
