@@ -15,9 +15,9 @@ Switch component documentation.
 
 ## Events
 
-| Event    | Description                           | Type                   |
-| -------- | ------------------------------------- | ---------------------- |
-| `change` | Is called when the value has changed. | `CustomEvent<boolean>` |
+| Event       | Description                           | Type                   |
+| ----------- | ------------------------------------- | ---------------------- |
+| `gtcChange` | Is called when the value has changed. | `CustomEvent<boolean>` |
 
 ---
 

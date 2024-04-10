@@ -28,7 +28,7 @@ export class Switch {
   /**
    * Is called when the value has changed.
    */
-  @Event() private change: EventEmitter<boolean>;
+  @Event() private gtcChange: EventEmitter<boolean>;
 
   render() {
     return (
@@ -53,7 +53,7 @@ export class Switch {
 
   private toggleChecked(event: KeyboardEvent | MouseEvent) {
     event.preventDefault();
-    this.change.emit(!this.checked);
+    this.gtcChange.emit(!this.checked);
   }
 
   private onClick = (event: MouseEvent) => {

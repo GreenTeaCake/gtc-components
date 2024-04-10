@@ -3,13 +3,11 @@
     "target": "es2017",
     "lib": ["dom", "es2017"],
     "module": "esnext",
-
     /* Bundler mode */
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "react",
     "jsxFactory": "h",
-
     /* Linting */
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
@@ -33,6 +31,12 @@
     "strictPropertyInitialization": false,
     "useUnknownInCatchVariables": true
   },
-  "include": [".storybook/main.js", ".storybook/preview.js", "src", "stencil.config.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src"],
+  "exclude": [
+    ".storybook",
+    "node_modules",
+    "src/stories",
+    "src/**/*.stories.ts",
+    "stencil.config.ts"
+  ]
 }
