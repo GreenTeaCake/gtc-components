@@ -39,6 +39,11 @@ export class Switch {
    */
   @Prop({ reflect: true }) public label!: string;
 
+  @Watch('label')
+  protected validateLabelChange(newLabelValue: string) {
+    this.validateLabel(newLabelValue);
+  }
+
   /**
    * The reflective property that allows to control the state of the switch.
    *
@@ -78,11 +83,6 @@ export class Switch {
         </div>
       </Host>
     );
-  }
-
-  @Watch('label')
-  protected validateLabelChange(newLabelValue: string) {
-    this.validateLabel(newLabelValue);
   }
 
   private validateLabel(labelValue: string) {
