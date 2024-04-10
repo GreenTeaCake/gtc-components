@@ -22,6 +22,8 @@ Specifications:
 Please use `checked` property to control the component's state and attach event listener for custom `gtcChange`
 event to be notified about the state changes.
 
+Please note that the field `label` is mandatory.
+
 ## Usage
 
 ### Basic-example
