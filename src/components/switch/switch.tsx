@@ -46,9 +46,8 @@ export class Switch {
   @Prop({ reflect: true }) public disabled = false;
 
   /**
-   * Is called when the value has changed.
+   * Is called when the value has changed. Event name is prefixed not to be confused/conflict with the native one.
    */
-  // event name is prefixed not to be confused/conflict with the native one
   @Event() private gtcChange: EventEmitter<boolean>;
 
   render() {
